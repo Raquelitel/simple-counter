@@ -1,16 +1,17 @@
 import React from "react";
-import Counter from "./feature-counter.jsx";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import PreHome from "./PreHome.jsx";
+
+
 
 //create your first component
 const Home = () => {
 	return (
-		<div className="text-center">
-			<Counter/>
+		<div className="text-center d-flex justify-content-center mt-5">
+			<PreHome/>
 		</div>
 	);
 };
 
 export default Home;
+

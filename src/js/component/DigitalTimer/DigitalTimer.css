@@ -1,0 +1,15 @@
+.borderRadius {
+    border-radius: 2rem;
+}
+
+
+.containerShadow {
+    -webkit-box-shadow: 7px 5px 14px 5px rgba(99,98,99,1);
+    -moz-box-shadow: 7px 5px 14px 5px rgba(99,98,99,1);
+    box-shadow: 7px 5px 14px 5px rgba(99,98,99,1);
+}
+
+.numberSize {
+    width:15vh;
+} 
+

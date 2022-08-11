@@ -11,6 +11,10 @@
 
 */
 
+body{
+    background-image: url(https://images.pexels.com/photos/552598/pexels-photo-552598.jpeg?auto=compress&cs=tinysrgb&w=1600);
+}
+
 .container {
    font-size: 10rem;
    
