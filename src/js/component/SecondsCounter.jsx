@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import DigitalTimer from "./DigitalTimer/DigitalTimer.jsx";
-import ButtonReset from "./ButtonReset.jsx";
 
 const SecondsCounter = () => {
   const [segundoUno, setSegundoUno] = useState(0);
@@ -39,24 +38,8 @@ const SecondsCounter = () => {
   }
   if (horaDos === 2 && horaUno > 4) {
     setHoraDos(0);
-  }
+  } else {clearInterval()}
 
-
-/*   const reiniciar = () => {
-    clearInterval(setInterval)
-  }
- */
-
-    const reiniciar = () => {
-      setSegundoUno(0),
-        setSegundoDos(0),
-        setMinutoUno(0),
-        setMinutoDos(0),
-        setHoraUno(0),
-        setHoraDos(0);
-    };
-    
-    console.log(reiniciar);
   return (
     <>
       <DigitalTimer

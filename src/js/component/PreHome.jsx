@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar.jsx";
+import Navbar from "./Navbar/Navbar.jsx";
 import SecondsCounter from "./SecondsCounter.jsx";
 import SecondReverse from "./SecondReverse.jsx";
 import DigitalTimer from "./DigitalTimer/DigitalTimer.jsx";
@@ -26,11 +26,11 @@ const PreHome = () => {
     console.log(activo);
     if (activo === "contador") {
       setVisualizar(<SecondsCounter />);
-    }
-    if (activo === "reverse") {
+    } if (activo === "reverse") {
       setVisualizar(<SecondReverse />);
-    }
-    if (activo === "temporizador") {
+    } if (activo === "cronometro") {
+      setVisualizar(<Cronometro/>)
+    } if (activo === "temporizador") {
       setVisualizar(<Temporizador />);
     }
   };

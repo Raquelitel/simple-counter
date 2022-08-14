@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import DigitalTimer from "./DigitalTimer/DigitalTimer.jsx";
-import ButtonReset from "./ButtonReset.jsx";
 
-const Temporizador = (valor) => {
+
+const Temporizador = () => {
   const [segundoUno, setSegundoUno] = useState(0);
   const [segundoDos, setSegundoDos] = useState(0);
   const [minutoUno, setMinutoUno] = useState(0);
@@ -11,18 +11,22 @@ const Temporizador = (valor) => {
   const [horaDos, setHoraDos] = useState(0);
   const [tiempo, setTiempo] = useState(0);
 
-  const reiniciar = () => {
-    setSegundoUno(0),
-      setSegundoDos(0),
-      setMinutoUno(0),
-      setMinutoDos(0),
-      setHoraUno(0),
-      setHoraDos(0);
-  };
+  
+
 
   const cuentaAtras = () => {
-    setSegundoUno({tiempo}), setSegundoDos(0), setMinutoUno(0);
+    if (tiempo.length >6) {
+      alert("Introduce un número valido")
+      return;
+  }
+
+
+
+    setSegundoUno(tiempo), setSegundoDos(0), setMinutoUno(0);
     setMinutoDos(0), setHoraUno(0), setHoraDos();
+
+
+
   };
 
   return (
@@ -34,33 +38,26 @@ const Temporizador = (valor) => {
         minuteTwo={minutoDos}
         hourOne={horaUno}
         hourTwo={horaDos}
-      />
-
-      <input  
-            type="text"
-            value={tiempo}
-            onChange={(e) => setTiempo(e.target.value)}
-          
-          />
-          
+      />  
       <>
         {/* boton */}
+        <div className="d-flex justify-content-center">
         <button
           type="button"
-          className="btn btn-info mb-5 mx-3 text-capitalize"
+          className="btn btn-info text-capitalize"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
         >
           cuenta atrás
         </button>
-
+        </div>
         {/* modal */}
         <div
           className="modal fade"
           id="staticBackdrop"
           data-bs-backdrop="static"
           data-bs-keyboard="false"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
@@ -82,7 +79,7 @@ const Temporizador = (valor) => {
               </div>
               <div className="modal-body">
                 <input
-                  type="text"
+                  type="number"
                   className="border-bottom border-0"
                   value={tiempo}
                   onChange={(e) => setTiempo(e.target.value)}
