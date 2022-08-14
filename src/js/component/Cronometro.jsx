@@ -9,54 +9,61 @@ const Cronometro = () => {
   const [minutoDos, setMinutoDos] = useState(0);
   const [horaUno, setHoraUno] = useState(0);
   const [horaDos, setHoraDos] = useState(0);
+  const [isActive, setIsActive] = useState(false);
 
-  useEffect(() => {
-    setInterval(() => {
-      setSegundoUno((valor) => valor + 1);
-    }, 1000);
-  }, []);
+  const start = () => {
+    // setIsActive(!isActive);
 
-  if (segundoUno > 9) {
-    setSegundoUno(0);
-    setSegundoDos(segundoDos + 1);
-  }
-  if (segundoDos === 5 && segundoUno > 9) {
-    setSegundoDos(0);
-    setMinutoUno(minutoUno + 1);
-  }
-  if (minutoUno > 9) {
-    setMinutoUno(0);
-    setMinutoDos(minutoDos + 1);
-  }
+    useEffect(() => {
+      let intervalId;
+      if (isActive) {
+        intervalId = setInterval(() => {
+          setSegundoUno((valor) => valor + 1);
+        }, 1000);
 
-  if (minutoDos === 5 && minutoUno > 9) {
-    setMinutoDos(0);
-    setHoraUno(horaUno + 1);
-  }
-  if (horaUno > 9) {
-    setHoraUno(0);
-    setHoraDos(horaDos + 1);
-  }
-  if (horaDos === 2 && horaUno > 4) {
-    setHoraDos(0);
-  }
+        if (segundoUno > 9) {
+          setSegundoUno(0);
+          setSegundoDos(segundoDos + 1);
+        }
+        if (segundoDos === 5 && segundoUno > 9) {
+          setSegundoDos(0);
+          setMinutoUno(minutoUno + 1);
+        }
+        if (minutoUno > 9) {
+          setMinutoUno(0);
+          setMinutoDos(minutoDos + 1);
+        }
 
+        if (minutoDos === 5 && minutoUno > 9) {
+          setMinutoDos(0);
+          setHoraUno(horaUno + 1);
+        }
+        if (horaUno > 9) {
+          setHoraUno(0);
+          setHoraDos(horaDos + 1);
+        }
+        if (horaDos === 2 && horaUno > 4) {
+          setHoraDos(0);
+        }
+      }
+    }, [isActive, segundoUno]);
+  };
 
-/*   const reiniciar = () => {
+  /*   const reiniciar = () => {
     clearInterval(setInterval)
   }
  */
 
-    const reiniciar = () => {
-      setSegundoUno(0),
-        setSegundoDos(0),
-        setMinutoUno(0),
-        setMinutoDos(0),
-        setHoraUno(0),
-        setHoraDos(0);
-    };
-    
-    console.log(reiniciar);
+  const reiniciar = () => {
+    setSegundoUno(0),
+      setSegundoDos(0),
+      setMinutoUno(0),
+      setMinutoDos(0),
+      setHoraUno(0),
+      setHoraDos(0);
+  };
+
+  console.log(reiniciar);
   return (
     <>
       <DigitalTimer
@@ -67,7 +74,19 @@ const Cronometro = () => {
         hourOne={horaUno}
         hourTwo={horaDos}
       />
+      <div className="buttons">
+        <button onClick={() => setIsActive(!isActive)} >
+          {isActive ? "Pause" : "Start"}
+        </button>
+        <button onClick={() => null} className="start">
+          Start
+        </button>
+        <button onClick={() => null} className="reset">
+          Reset
+        </button>
+      </div>
       <ButtonReset reiniciarCuenta={reiniciar} />
+      <ButtonReset reiniciarCuenta={start} />
     </>
   );
 };

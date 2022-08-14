@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DigitalTimer from "./DigitalTimer/DigitalTimer.jsx";
 import ButtonReset from "./ButtonReset.jsx";
 
+
 const SecondReverse = () => {
   const [segundoUno, setSegundoUno] = useState(9);
   const [segundoDos, setSegundoDos] = useState(5);
@@ -50,7 +51,6 @@ const SecondReverse = () => {
       setHoraDos(2);
   };
 
-  console.log(reiniciar);
   return (
     <>
       <DigitalTimer

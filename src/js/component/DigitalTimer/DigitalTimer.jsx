@@ -10,7 +10,7 @@ const DigitalTimer = ({
   hourTwo,
 }) => {
   return (
-    <div className="container justify-content-center align-items-center">
+    <div className="container justify-content-center align-items-center my-5">
       <div className="d-flex flex-row justify-content-center align-items-center bg-secondary  borderRadius containerShadow">
         <div className="text-info bg-dark d-flex flex-row justify-content-center align-items-center my-2  borderRadius">
           <p className="numberSize">{hourTwo}</p>
