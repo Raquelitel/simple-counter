@@ -10,6 +10,10 @@
 }
 
 .numberSize {
-    width:15vh;
+    font-size: 15vmax;
 } 
 
+.bgSize {
+    /* max-width:15vw; */
+    height: 90%;
+}

@@ -21,7 +21,7 @@ const ModalReverse = () => {
   };
 
   const cuentaAtras = () => {
-    setSegundoUno(0), setSegundoDos(0), setMinutoUno(0);
+    setSegundoUno({tiempo}), setSegundoDos(0), setMinutoUno(0);
     setMinutoDos(0), setHoraUno(0), setHoraDos();
   };
   /*   let tiempo = 0;
