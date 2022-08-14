@@ -61,7 +61,6 @@ const SecondReverse = () => {
         hourOne={horaUno}
         hourTwo={horaDos}
       />
-      <ButtonReset reiniciarCuenta={reiniciar} />
     </>
   );
 };

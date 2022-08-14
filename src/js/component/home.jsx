@@ -8,7 +8,6 @@ import PreHome from "./PreHome.jsx";
 const Home = () => {
 	return (
 		<div>
-
 			<PreHome/>
 		</div>
 	);

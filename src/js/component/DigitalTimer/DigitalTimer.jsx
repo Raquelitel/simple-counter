@@ -16,8 +16,6 @@ const DigitalTimer = ({
           <p className="numberSize">{hourTwo}</p>
           <p className="numberSize">{hourOne}</p>
         </div>
-
-        
         <p className="my-2">:</p>
         <div className="text-info bg-dark d-flex flex-wrap justify-content-center borderRadius bgSize">
           <p className="numberSize">{minuteTwo}</p>

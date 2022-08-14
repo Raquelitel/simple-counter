@@ -12,7 +12,7 @@ const Cronometro = () => {
   const [isActive, setIsActive] = useState(false);
 
   const start = () => {
-    // setIsActive(!isActive);
+    setIsActive(!isActive);
 
     useEffect(() => {
       let intervalId;
@@ -49,19 +49,6 @@ const Cronometro = () => {
     }, [isActive, segundoUno]);
   };
 
-  /*   const reiniciar = () => {
-    clearInterval(setInterval)
-  }
- */
-
-  const reiniciar = () => {
-    setSegundoUno(0),
-      setSegundoDos(0),
-      setMinutoUno(0),
-      setMinutoDos(0),
-      setHoraUno(0),
-      setHoraDos(0);
-  };
 
   console.log(reiniciar);
   return (
@@ -75,7 +62,7 @@ const Cronometro = () => {
         hourTwo={horaDos}
       />
       <div className="buttons">
-        <button onClick={() => setIsActive(!isActive)} >
+        <button onClick={start} >
           {isActive ? "Pause" : "Start"}
         </button>
         <button onClick={() => null} className="start">
@@ -85,8 +72,6 @@ const Cronometro = () => {
           Reset
         </button>
       </div>
-      <ButtonReset reiniciarCuenta={reiniciar} />
-      <ButtonReset reiniciarCuenta={start} />
     </>
   );
 };
