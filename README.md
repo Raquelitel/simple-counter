@@ -1,6 +1,6 @@
 # Hello Friends :smile: !! 
 
-##This is my Simple Counter :alarm_clock:
+## This is my Simple Counter :alarm_clock:
 
 I wanted to try and change different counter so I conditioned my components with Navbar. 
 
