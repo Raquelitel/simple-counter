@@ -1,57 +1,64 @@
 import React, { useState, useEffect } from "react";
 import DigitalTimer from "./DigitalTimer/DigitalTimer.jsx";
-import ButtonReset from "./ButtonReset.jsx";
 
-const ModalReverse = () => {
+
+const Temporizador = () => {
   const [segundoUno, setSegundoUno] = useState(0);
-  const [segundoDos, setSegundoDos] = useState(0);
+  const [segundoDos, setSegundoDos] = useState("");
   const [minutoUno, setMinutoUno] = useState(0);
   const [minutoDos, setMinutoDos] = useState(0);
   const [horaUno, setHoraUno] = useState(0);
   const [horaDos, setHoraDos] = useState(0);
-  const [tiempo, setTiempo] = useState(0);
+  const [tiempo, setTiempo] = useState("");
 
-  const reiniciar = () => {
-    setSegundoUno(0),
-      setSegundoDos(0),
-      setMinutoUno(0),
-      setMinutoDos(0),
-      setHoraUno(0),
-      setHoraDos(0);
-  };
+  
+  const [isActive, setIsActive] = useState(true);
+  const [cuenta, setCuenta] = useState([])
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(!isActive) { 
+        setSegundoUno((valor) => valor - 1);
+      } 
+    }, 1000);
+    return () => clearInterval(interval);
+  });
+
 
   const cuentaAtras = () => {
+    setIsActive(!isActive);
+    if (tiempo === 0 || tiempo === "" || tiempo.length >2) {
+      alert("Introduce un número valido")
+      return;
+  }
+
+  setSegundoUno(tiempo)
+
+  }
+
+  if(segundoUno<0) {
     setSegundoUno(0), setSegundoDos(0), setMinutoUno(0);
-    setMinutoDos(0), setHoraUno(0), setHoraDos();
-  };
-  /*   let tiempo = 0;
-  const [backwards, setBackwards] = useState(tiempo);
-  const [count, setCount] = useState(0);
+    setMinutoDos(0), setHoraUno(0), setHoraDos(0);
+  }
 
-  const cuantoTiempoQueda = () => {
-    setCount(count + 1);
-    tiempo = window.prompt("¿Cuantos segundos quieres de cuenta atras?");
+/* let contador = parseInt(tiempo)
+let newContador = contador.padStart(6,0)
 
-    if (isNaN(tiempo)) {
-      alert("Introduce un número valido");
-      return;
-    }
-
-    tiempo = parseInt(tiempo);
-    setBackwards(tiempo);
+  console.log(typeof newContador)
+  console.log(newContador)
+     setSegundoUno(cuenta[5]), setSegundoDos(cuenta[4]), setMinutoUno(cuenta[3]);
+    setMinutoDos(cuenta[2]), setHoraUno(cuenta[1]), setHoraDos(cuenta[0]); 
   };
 
-  setTimeout(() => {
-    if (backwards === 0 && count > 0) {
-      alert("Tu tiempo ha acabado");
-      return;
-    }
-
-    if (count > 0) setBackwards(backwards - 1);
-  }, 1000); */
-
+  if(segundoUno<0) {
+    setSegundoUno(0), setSegundoDos(0), setMinutoUno(0);
+    setMinutoDos(0), setHoraUno(0), setHoraDos(0);
+  }
+ */
   return (
     <>
+    <h2 className="text-center text-capitalize mt-3">temporizador de segundos</h2>
       <DigitalTimer
         secondOne={segundoUno}
         secondsTwo={segundoDos}
@@ -59,31 +66,26 @@ const ModalReverse = () => {
         minuteTwo={minutoDos}
         hourOne={horaUno}
         hourTwo={horaDos}
-      />
-      {/* 
-      <h1 className="text-center mt-5 bg-dark">
-        <div>{backwards}</div>
-      </h1> */}
-
-      <ButtonReset reiniciarCuenta={reiniciar} />
+      />  
       <>
         {/* boton */}
+        <div className="d-flex justify-content-center">
         <button
           type="button"
-          className="btn btn-info mb-5 mx-3 text-capitalize"
+          className="btn btn-info text-capitalize"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
         >
           cuenta atrás
         </button>
-
+        </div>
         {/* modal */}
         <div
           className="modal fade"
           id="staticBackdrop"
           data-bs-backdrop="static"
           data-bs-keyboard="false"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
@@ -94,7 +96,7 @@ const ModalReverse = () => {
                   className="modal-title text-capitalize"
                   id="staticBackdropLabel"
                 >
-                  Añade el tiempo (HH/MM/SS)
+                  Añadir unidad de tiempo en segundos
                 </h5>
                 <button
                   type="button"
@@ -122,6 +124,7 @@ const ModalReverse = () => {
                 <button
                   type="button"
                   className="btn btn-primary text-capitalize"
+                  data-bs-dismiss="modal"
                   onClick={() => cuentaAtras()}
                 >
                   Empezar
@@ -135,4 +138,4 @@ const ModalReverse = () => {
   );
 };
 
-export default ModalReverse;
+export default Temporizador;
