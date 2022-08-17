@@ -7,7 +7,7 @@ const Navbar = ({elegirReloj, reiniciar}) => {
     <>
         <div className="collapse" id="navbarToggleExternalContent">
             <div className="bg-dark p-4">
-                <h5 className="text-white h4">Menú relojes</h5>
+                <h5 className="text-white h4 text-uppercase">Menú relojes</h5>
                 <div className="d-flex flex-wrap justify-content-center">
                 <button id="contador" type="button" className="col-5 col-md-auto btn btn-secondary m-1 text-capitalize bg-hover" onClick={elegirReloj}>Contador</button>
                 <button id="reverse" type="button" className="col-5 col-md-auto btn btn-secondary m-1 text-capitalize bg-hover" onClick={elegirReloj}>Marcha atrás</button>

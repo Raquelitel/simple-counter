@@ -8,19 +8,22 @@ const Cronometro = () => {
   const [minutoDos, setMinutoDos] = useState(0);
   const [horaUno, setHoraUno] = useState(0);
   const [horaDos, setHoraDos] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(!isActive) { 
+        setSegundoUno((valor) => valor + 1);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  });
 
   const start = () => {
     setIsActive(!isActive);
   };
-
-  useEffect(() => {
-    if (isActive) {
-      setInterval(() => {
-        setSegundoUno((valor) => valor + 1);
-      }, 1000);
-    }
-  }, [isActive]);
+ 
 
   if (segundoUno > 9) {
     setSegundoUno(0);

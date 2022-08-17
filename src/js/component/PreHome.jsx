@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar/Navbar.jsx";
 import SecondsCounter from "./SecondsCounter.jsx";
 import SecondReverse from "./SecondReverse.jsx";
@@ -23,17 +23,34 @@ const PreHome = () => {
   const elegirReloj = (e) => {
     setFirstTime(false);
     setActivo(e.target.id);
-    console.log(activo);
-    if (activo === "contador") {
-      setVisualizar(<SecondsCounter />);
-    } if (activo === "reverse") {
-      setVisualizar(<SecondReverse />);
-    } if (activo === "cronometro") {
-      setVisualizar(<Cronometro/>)
-    } if (activo === "temporizador") {
-      setVisualizar(<Temporizador />);
-    }
+
+/*     let active = e.target.id
+    switch(active) {
+      case "contador": setVisualizar(<SecondsCounter />);
+      break;
+      case "reverse": setVisualizar(<SecondReverse />);
+      break;
+      case "cronometro": setVisualizar(<Cronometro/>);
+      break;
+      case "temporizador": setVisualizar(<Temporizador />);
+      break;
+    } */
   };
+
+
+  useEffect(()=> {
+    switch(activo) {
+      case "contador": setVisualizar(<SecondsCounter />);
+      break;
+      case "reverse": setVisualizar(<SecondReverse />);
+      break;
+      case "cronometro": setVisualizar(<Cronometro/>);
+      break;
+      case "temporizador": setVisualizar(<Temporizador />);
+      break;
+    }
+  }, [activo])
+
 
   const reiniciar = () => {
     setVisualizar("");

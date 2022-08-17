@@ -4,33 +4,61 @@ import DigitalTimer from "./DigitalTimer/DigitalTimer.jsx";
 
 const Temporizador = () => {
   const [segundoUno, setSegundoUno] = useState(0);
-  const [segundoDos, setSegundoDos] = useState(0);
+  const [segundoDos, setSegundoDos] = useState("");
   const [minutoUno, setMinutoUno] = useState(0);
   const [minutoDos, setMinutoDos] = useState(0);
   const [horaUno, setHoraUno] = useState(0);
   const [horaDos, setHoraDos] = useState(0);
-  const [tiempo, setTiempo] = useState(0);
+  const [tiempo, setTiempo] = useState("");
 
   
+  const [isActive, setIsActive] = useState(true);
+  const [cuenta, setCuenta] = useState([])
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(!isActive) { 
+        setSegundoUno((valor) => valor - 1);
+      } 
+    }, 1000);
+    return () => clearInterval(interval);
+  });
 
 
   const cuentaAtras = () => {
-    if (tiempo.length >6) {
+    setIsActive(!isActive);
+    if (tiempo === 0 || tiempo === "" || tiempo.length >2) {
       alert("Introduce un número valido")
       return;
   }
 
+  setSegundoUno(tiempo)
 
+  }
 
-    setSegundoUno(tiempo), setSegundoDos(0), setMinutoUno(0);
-    setMinutoDos(0), setHoraUno(0), setHoraDos();
+  if(segundoUno<0) {
+    setSegundoUno(0), setSegundoDos(0), setMinutoUno(0);
+    setMinutoDos(0), setHoraUno(0), setHoraDos(0);
+  }
 
+/* let contador = parseInt(tiempo)
+let newContador = contador.padStart(6,0)
 
-
+  console.log(typeof newContador)
+  console.log(newContador)
+     setSegundoUno(cuenta[5]), setSegundoDos(cuenta[4]), setMinutoUno(cuenta[3]);
+    setMinutoDos(cuenta[2]), setHoraUno(cuenta[1]), setHoraDos(cuenta[0]); 
   };
 
+  if(segundoUno<0) {
+    setSegundoUno(0), setSegundoDos(0), setMinutoUno(0);
+    setMinutoDos(0), setHoraUno(0), setHoraDos(0);
+  }
+ */
   return (
     <>
+    <h2 className="text-center text-capitalize mt-3">temporizador de segundos</h2>
       <DigitalTimer
         secondOne={segundoUno}
         secondsTwo={segundoDos}
@@ -68,7 +96,7 @@ const Temporizador = () => {
                   className="modal-title text-capitalize"
                   id="staticBackdropLabel"
                 >
-                  Añade el tiempo (HH/MM/SS)
+                  Añadir unidad de tiempo en segundos
                 </h5>
                 <button
                   type="button"
@@ -96,6 +124,7 @@ const Temporizador = () => {
                 <button
                   type="button"
                   className="btn btn-primary text-capitalize"
+                  data-bs-dismiss="modal"
                   onClick={() => cuentaAtras()}
                 >
                   Empezar

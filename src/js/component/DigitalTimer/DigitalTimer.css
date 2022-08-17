@@ -1,19 +1,58 @@
 .borderRadius {
     border-radius: 2rem;
 }
-
-
 .containerShadow {
     -webkit-box-shadow: 7px 5px 14px 5px rgba(99,98,99,1);
     -moz-box-shadow: 7px 5px 14px 5px rgba(99,98,99,1);
     box-shadow: 7px 5px 14px 5px rgba(99,98,99,1);
 }
-
 .numberSize {
     font-size: 15vmax;
 } 
-
 .bgSize {
-    /* max-width:15vw; */
     height: 90%;
+}
+
+@media (max-width: 770px) {
+    .container-size {
+        max-width: 55rem;
+        height: 15rem;
+    }
+    .numberSize {
+        font-size: 13vmax;
+    } 
+    .bgSize {
+        height: 90%;
+    }
+    
+}
+
+@media (max-width: 550px) {
+    .container-size {
+        max-width: 40rem;
+        max-height: 10rem;
+    }
+    .numberSize {
+        font-size: 10vmax;
+    }    
+}
+
+@media (max-width: 470px) {
+    .container-size {
+        max-width: 30rem;
+        max-height: 10rem;
+    }
+    .numberSize {
+        font-size: 9vmax;
+    } 
+}
+
+@media (max-width: 410px) {
+    .container-size {
+        max-width: 20rem;
+        max-height: 8rem;
+    }
+    .numberSize {
+        font-size: 7vmax;
+    } 
 }
