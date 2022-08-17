@@ -16,13 +16,13 @@
 @media (max-width: 770px) {
     .container-size {
         max-width: 55rem;
-        height: 15rem;
+        max-height: 10rem;
     }
     .numberSize {
         font-size: 13vmax;
     } 
     .bgSize {
-        height: 90%;
+        max-height: 90%;
     }
     
 }
@@ -30,10 +30,10 @@
 @media (max-width: 550px) {
     .container-size {
         max-width: 40rem;
-        max-height: 10rem;
+        max-height: 11rem;
     }
     .numberSize {
-        font-size: 10vmax;
+        font-size: 13vmax;
     }    
 }
 
@@ -43,16 +43,20 @@
         max-height: 10rem;
     }
     .numberSize {
-        font-size: 9vmax;
+        font-size: 11vmax;
     } 
 }
 
 @media (max-width: 410px) {
     .container-size {
         max-width: 20rem;
-        max-height: 8rem;
+        max-height: 7rem;
     }
     .numberSize {
-        font-size: 7vmax;
+        font-size: 8vmax;
     } 
+
+    .mqSize {
+        font-size: 8vmax;
+    }
 }
