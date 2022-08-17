@@ -22,6 +22,7 @@ const Navbar = ({elegirReloj, reiniciar}) => {
             <div className="container-fluid">
                 <button className="navbar-toggler bg-hover" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
+                <p>Menú</p>
                 </button>
             </div>
         </nav>
